@@ -1,0 +1,332 @@
+{
+	"info": {
+		"_postman_id": "21e26899-4dd1-4107-a4b1-a83c05419ed2",
+		"name": "Farmer-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Register User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const jsonData = pm.response.json()\r",
+									"pm.globals.set(\"token\", jsonData.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Kevin\",\r\n    \"email\": \"kevin.glez@gmail.com\",\r\n    \"password\": \"secret\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/auth/register",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const jsonData = pm.response.json()\r",
+									"pm.globals.set(\"token\", jsonData.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"alex.glez@gmail.com\",\r\n    \"password\": \"secret\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/auth/login",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/auth/logout",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Farmers",
+			"item": [
+				{
+					"name": "Get All Farmers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/farmers",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"farmers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Farmer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Joseito\",\r\n    \"lastName\": \"Gonzalez\",\r\n    \"email\": \"joseito@gamil.com\",\r\n    \"direction\": \"Georgia, USA\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/farmers",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"farmers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Single Farmer",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/farmers/6302358b6481f118988c5e67",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"farmers",
+								"6302358b6481f118988c5e67"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Farmer",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/farmers/6302346b282a46c03ae1342e",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"farmers",
+								"6302346b282a46c03ae1342e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Farmer",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Pedro\",\r\n    \"lastName\": \"Perez\",\r\n    \"email\": \"pedro@gmail.com\",\r\n    \"direction\": \"Georgia, Usa\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/farmers/6302358b6481f118988c5e67",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"farmers",
+								"6302358b6481f118988c5e67"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "Get All Products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/products",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Product",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"patato\",\r\n    \"price\": 34.03,\r\n    \"description\": \"The best product of eart\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/products",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Single Product",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/products/630424a305d45b9793853da5",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"products",
+								"630424a305d45b9793853da5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Product",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"yucca\",\r\n    \"price\": 15.50,\r\n    \"description\": \"The best product of eart\",\r\n    \"um\": \"t\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/products/6302bb50765b44679806dd65",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"products",
+								"6302bb50765b44679806dd65"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Product",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/products/6302bb50765b44679806dd65",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"products",
+								"6302bb50765b44679806dd65"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
